@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React ,{useState} from 'react'
+import AddTask from './Components/AddTask/AddTask'
+import TaskList from './Components/TaskList/TaskList'
+import CheckBox from './Components/CheckBox/CheckBox'
 
 function App() {
+  const[done, setDone]=useState(false)
+    const[undone, setUndone]=useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddTask/>
+      <CheckBox SetIsdone={setDone} setUndone={setUndone}/>
+      <TaskList done={done} undone={undone}/>
     </div>
   );
 }
 
 export default App;
+
